@@ -35,6 +35,7 @@ def seed_restaurants():
 
     db.session.add_all(seed_restaurants)
     db.session.commit()
+    db.session.close()
 
 def undo_restaurants():
     if environment == "production":
