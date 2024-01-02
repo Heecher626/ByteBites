@@ -27,7 +27,7 @@ class Cart(db.Model):
 
     user = db.relationship("User", back_populates="cart")
 
-    items = db.relationship("Item", secondary=cartItem)
+    items = db.relationship("Item", secondary=cartItem, back_populates="cart")
 
     def to_dict(self):
         return_dict = {

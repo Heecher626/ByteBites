@@ -1,4 +1,5 @@
 from .db import db, add_prefix_for_prod
+from .cart import cartItem
 
 import os
 
@@ -19,6 +20,7 @@ class Item(db.Model):
     image_url = db.Column(db.String(255), nullable=False)
 
     restaurant = db.relationship("Restaurant", back_populates="items")
+    cart = db.relationship("Cart", secondary=cartItem, back_populates="items")
 
 
     def to_dict(self):
