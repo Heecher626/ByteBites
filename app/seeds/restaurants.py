@@ -33,7 +33,7 @@ def seed_restaurants():
 
     seed_restaurants = [restaurant_1, restaurant_2, restaurant_3, restaurant_4]
 
-    [db.session.add(restaurant) for restaurant in seed_restaurants]
+    db.session.add_all(seed_restaurants)
     db.session.commit()
 
 def undo_restaurants():
