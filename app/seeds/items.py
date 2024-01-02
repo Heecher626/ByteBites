@@ -71,6 +71,7 @@ def seed_items():
 
     db.session.add_all(items)
     db.session.commit()
+    db.session.close()
 
 def undo_items():
     if environment == "production":
