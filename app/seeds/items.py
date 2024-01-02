@@ -69,7 +69,7 @@ def seed_items():
         image_url="https://www.justonecookbook.com/wp-content/uploads/2020/06/Dragon-Roll-0290-III.jpg"
     ))
 
-    [db.session.add(item) for item in items]
+    db.session.add_all(items)
     db.session.commit()
 
 def undo_items():
