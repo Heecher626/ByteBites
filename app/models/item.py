@@ -16,7 +16,7 @@ class Item(db.Model):
     restaurant_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("restaurants.id")), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     price_cents = db.Column(db.Integer, nullable=False)
-    description = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     image_url = db.Column(db.String(255), nullable=False)
 
     restaurant = db.relationship("Restaurant", back_populates="items")
