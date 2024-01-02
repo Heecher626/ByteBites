@@ -22,7 +22,7 @@ function Navigation() {
       {user ?
         (
           <>
-             <NavLink to="/my-restaurants" className="navbar-link">My Restaurants</NavLink>
+             <NavLink to="/manage" className="navbar-link">My Restaurants</NavLink>
             <ProfileButton />
           </>
         )

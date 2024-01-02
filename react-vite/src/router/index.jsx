@@ -6,6 +6,7 @@ import OneRestaurant from '../components/OneRestaurantPage/OneRestaurant';
 import Layout from './Layout';
 import CreateRestaurantForm from '../components/CreateRestaurantForm/CreateRestaurantForm';
 import UpdateRestaurantForm from '../components/UpdateRestaurantForm/UpdateRestaurant';
+import MyRestaurantsPage from '../components/MyRestaurantsPage/MyRestaurantsPage';
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
         path:"restaurants/:restaurantId/update",
         element: <UpdateRestaurantForm />
       },
+      {
+        path:"manage",
+        element: <MyRestaurantsPage />
+      }
     ],
   },
 ]);
