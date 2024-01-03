@@ -5,7 +5,7 @@
 .profile-dropdown {
   display: flex;
   flex-direction: column;
-  background-color: #ff5000;
+  background-color: #AAA;
   border: 2px black solid;
   justify-content: end;
   position: absolute;
@@ -20,10 +20,11 @@
 }
 
 .navbar-container{
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   justify-content: space-between;
   display: flex;
   height: 10%;
+  margin-bottom:20px;
 }
 
 .navbar-link-container{

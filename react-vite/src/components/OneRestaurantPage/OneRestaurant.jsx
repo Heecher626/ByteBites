@@ -6,6 +6,8 @@ import DeleteRestaurantModal from "./DeleteRestaurantModal"
 import OpenModalButton from "../OpenModalButton"
 import ItemCard from "./ItemCard"
 
+import './OneRestaurant.css'
+
 export default function OneRestaurant() {
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -29,18 +31,28 @@ export default function OneRestaurant() {
     }
 
     return restaurant &&  (
-        <div>
-            <img src={restaurant.banner_image_url}/>
-            <div>{restaurant.name}</div>
-            <div>{restaurant.description}</div>
+        <div className="one-restaurant-page">
+            <div className="one-restaurant-page-content">
+                <div className="one-restaurant-header">
+                    <img className="one-restaurant-banner-image" src={restaurant.banner_image_url}/>
+                    <div className="one-restaurant-name">{restaurant.name}</div>
+                </div>
+                <div className="one-restaurant-description ">{restaurant.description}</div>
 
-            {restaurant.items.length && items.map( item => (
-                <ItemCard item={item} key={item.id} />
-            ))}
+
+                    {restaurant.items && restaurant.items.length && (
+                        <div className="items-grid">
+                            {items.map( item => (
+                            <ItemCard item={item} key={item.id} />))}
+                        </div>
+                    )}
 
 
-            <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
-            <button onClick={(e) => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+
+
+                <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
+                <button onClick={(e) => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+            </div>
 
         </div>
     )
