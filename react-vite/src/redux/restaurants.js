@@ -105,7 +105,7 @@ export const deleteRestaurantThunk = (restaurantId) => async dispatch => {
     })
 
     if(res.ok){
-        const data = await res.json()
+        await res.json()
         dispatch(removeRestaurant(restaurantId))
     } else {
         const error = await res.json()
@@ -113,6 +113,66 @@ export const deleteRestaurantThunk = (restaurantId) => async dispatch => {
         return error
     }
 
+}
+
+export const postItemThunk = (item, restaurantId) => async dispatch => {
+    try {
+        const res = await fetch(`/api/restaurants/${restaurantId}/new-item`, {
+            method: 'POST',
+            body: item
+        })
+
+        if(res.ok){
+            const data = await res.json()
+            dispatch(oneRestaurant(data))
+        } else {
+            const error = await res.json()
+            console.log(error)
+            return error
+        }
+    } catch (error) {
+        console.log("ERROR CAUGHT IN POST ITEM THUNK", error)
+        return error
+    }
+}
+
+export const updateItemThunk = (item, itemId) => async dispatch => {
+    try {
+        const res = await fetch(`/api/items/${itemId}/update`, {
+            method: 'PUT',
+            body: item
+        })
+
+        if (res.ok){
+            const updatedRestaurant = await res.json()
+            dispatch(oneRestaurant(updatedRestaurant.id))
+            return updatedRestaurant.id
+
+        } else {
+            const err = await res.json()
+            console.log(err)
+            return err
+        }
+
+    } catch (error) {
+        console.log("ERROR CAUGHT IN UPDATE ITEM THUNK", error)
+        return error
+    }
+}
+
+export const deleteItemThunk = (itemId) => async dispatch => {
+    const res = await fetch(`/api/items/${itemId}/delete`, {
+        method: 'DELETE'
+    })
+
+    if(res.ok){
+        const data = await res.json()
+        dispatch(oneRestaurant(data.id))
+    } else {
+        const error = await res.json()
+        console.log("ERROR IN DELETE ITEM THUNK: ", error)
+        return error
+    }
 }
 
 function restaurantsReducer(state = {}, action) {

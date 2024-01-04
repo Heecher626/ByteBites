@@ -48,8 +48,12 @@ export default function OneRestaurant() {
 
 
 
-                <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
-                <button onClick={(e) => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                { user?.id == restaurant.owner_id ? (
+                    <>
+                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
+                        <button onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                    </>
+                ) : null}
             </div>
 
         </div>

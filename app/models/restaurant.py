@@ -27,6 +27,7 @@ class Restaurant(db.Model):
     def to_dict(self, scope="default"):
         return_dict = {
             "id": self.id,
+            "owner_id": self.owner_id,
             "name": self.name,
             "description": self.description,
             "preview_image_url": self.preview_image_url,
