@@ -5,7 +5,7 @@
 }
 
 .all-restaurants-heading {
-
+    margin-bottom: 50px;
 }
 
 .all-restaurants-card-container {
@@ -24,6 +24,8 @@
     border: 2px solid green;
     background-color: #FFFFFF;
     transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-property: box-shadow;
 
     &&:hover {
         cursor: pointer;

@@ -1,0 +1,23 @@
+.new-restaurant-container {
+    background-color: #DDD;
+    padding: 0% 10%
+}
+
+.new-restaurant-content {
+    background-color: white;
+
+}
+
+.new-restaurant-header {
+    text-align: center;
+}
+
+.new-restaurant-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-restaurant-input {
+    padding: 20px;
+}

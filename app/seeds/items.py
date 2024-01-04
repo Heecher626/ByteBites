@@ -69,6 +69,46 @@ def seed_items():
         image_url="https://www.justonecookbook.com/wp-content/uploads/2020/06/Dragon-Roll-0290-III.jpg"
     ))
 
+    items.append(Item(
+        restaurant_id=4,
+        name="Garlic Bread",
+        price_cents=600,
+        description="Buttery bread that is topped with garlic.",
+        image_url="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_150,q_auto:low,fl_lossy,dpr_2.0,c_fill,f_auto,h_130/iattmafihobfk4emlfxy"
+    ))
+
+    items.append(Item(
+        restaurant_id= 4,
+        name = "Buratta",
+        price_cents = 1200,
+        description = "Cream filled fresh mozzarella over tomato salad and topped with fresh basil, balsamic glaze and extra virgin olive oil.",
+        image_url="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_150,q_auto:low,fl_lossy,dpr_2.0,c_fill,f_auto,h_130/beszzst0cif2znbw0hye"
+    ))
+
+    items.append(Item(
+        restaurant_id= 4,
+        name = "Penne with Chicken and Broccoli",
+        price_cents = 2000,
+        description = "Comes with a garlic cream sauce",
+    ))
+
+    items.append(Item(
+        restaurant_id= 4,
+        name = "Chicken Marsala",
+        price_cents = 2300,
+        description = "Mushrooms, prosciutto, sweet marsala wine reduction tossed with linguine",
+        image_url=""
+    ))
+
+
+    # items.append(Item(
+    #     restaurant_id= 0,
+    #     name = "",
+    #     price_cents = 0,
+    #     description = "",
+    #     image_url=""
+    # ))
+
     db.session.add_all(items)
     db.session.commit()
     db.session.close()

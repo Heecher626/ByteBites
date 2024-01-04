@@ -18,8 +18,12 @@ export default function UpdateRestaurantForm() {
     const [validationErrors, setValidationErrors] = useState({})
 
 
-    useEffect(() => {
-        dispatch(oneRestaurantThunk(restaurantId))
+    useEffect( () =>  {
+        const getRestaurant = async () => {
+            await dispatch(oneRestaurantThunk(restaurantId))
+        }
+
+        getRestaurant()
     }, [dispatch, restaurantId])
 
 
