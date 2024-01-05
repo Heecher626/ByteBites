@@ -30,6 +30,7 @@ class Item(db.Model):
             "description": self.description,
             "price_cents": self.price_cents,
             "image_url": self.image_url,
+            "restaurant_id": self.restaurant_id
         }
 
         return return_dict

@@ -4,6 +4,6 @@ export default function MyRestaurantsPage(){
     const navigate = useNavigate()
 
     return(
-        <button onClick={(e) => navigate(`/restaurants/new`)}>Create Restaurant</button>
+        <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>
     )
 }
