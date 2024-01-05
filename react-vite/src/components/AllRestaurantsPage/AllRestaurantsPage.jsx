@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux"
 import { allRestaurantsThunk } from "../../redux/restaurants"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import RestaurantCard from "./RestaurantCard";
 
 import "./AllRestaurantsPage.css"

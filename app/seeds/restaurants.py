@@ -18,7 +18,7 @@ def seed_restaurants():
     )
     restaurant_3 = Restaurant(
         owner_id=3,
-        name="Jammin Jambalaya",
+        name="Jammin' Jambalaya",
         description="temp",
         preview_image_url="https://cafedelites.com/wp-content/uploads/2018/05/Jambalaya-IMAGE-3.jpg",
         banner_image_url="https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4376_4k.jpg"

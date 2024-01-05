@@ -27,7 +27,16 @@ export default function OneRestaurant() {
     if(restaurant != undefined) {
         if (restaurant.items) {
             items = Object.values(restaurant.items)
+           console.log(items[0])
+
         }
+    }
+
+
+    let isOwner = false
+
+    if(restaurant != undefined) {
+        isOwner = user?.id == restaurant.owner_id
     }
 
     return restaurant &&  (
@@ -38,18 +47,23 @@ export default function OneRestaurant() {
                     <div className="one-restaurant-name">{restaurant.name}</div>
                 </div>
                 <div className="one-restaurant-description ">{restaurant.description}</div>
-                    {!restaurant.items ? null : restaurant.items.length ? (
+                    {!restaurant.items ? null : Object.keys(items).length ? (
                         <div className="items-grid">
                             {items.map( item => (
-                            <ItemCard item={item} key={item.id} />))}
+                            <ItemCard item={item} key={item.id} isOwner={isOwner} />))}
                         </div>
                     ) : <div>No items yet!</div>}
 
 
 
 
-                <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
-                <button onClick={(e) => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                { isOwner ? (
+                    <>
+                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
+                        <button onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                        <button onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
+                    </>
+                ) : null}
             </div>
 
         </div>

@@ -1,8 +1,8 @@
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from flask_login import login_required, current_user
 from flask import Blueprint, request, make_response
-from app.models import Restaurant, db
-from ..forms import RestaurantForm, UpdateRestaurantForm
+from app.models import Restaurant, Item, db
+from ..forms import RestaurantForm, UpdateRestaurantForm, ItemForm
 
 restaurant_routes = Blueprint('restaurant', __name__)
 
@@ -125,6 +125,9 @@ def update_restaurant(id):
 @restaurant_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_restaurant(id):
+    """
+    Deletes a restaurant
+    """
 
     restaurant = Restaurant.query.get(id)
 
@@ -140,3 +143,54 @@ def delete_restaurant(id):
     remove_file_from_s3(old_banner)
     remove_file_from_s3(old_preview)
     return {"message": "Successfully Deleted"}
+
+@restaurant_routes.route('/<int:id>/new-item', methods=['POST'])
+@login_required
+def add_item(id):
+    """
+    Creates a new item belonging to the specified restaurant
+    """
+
+    restaurant = Restaurant.query.get(id)
+
+    if current_user.id != restaurant.owner_id:
+        return make_response({ "errors": { "message": "forbidden"} }, 401)
+    form = ItemForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        new_item = Item()
+        if form.data["image"]:
+            image = form.data["image"]
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            print('')
+            print('UPLOAD: ', upload)
+            print('')
+
+            if "url" not in upload:
+                return upload
+
+            new_item = Item(
+                restaurant_id = restaurant.id,
+                name = form.data["name"],
+                description = form.data["description"],
+                price_cents = form.data["price_cents"],
+                image_url = upload['url']
+            )
+        else:
+            new_item = Item(
+                restaurant_id = restaurant.id,
+                name = form.data["name"],
+                description = form.data["description"],
+                price_cents = form.data["price_cents"],
+            )
+
+        db.session.add(new_item)
+        db.session.commit()
+        return restaurant.to_dict()
+    else:
+        print(form.errors)
+        return form.errors
