@@ -1,11 +1,11 @@
 import {useModal} from '../../context/Modal'
 import ItemModal from './ItemModal'
 
-export default function ItemCard({item}){
-    const {setModalContent, setOnModalClose} = useModal()
+export default function ItemCard({item, isOwner}){
+    const {setModalContent} = useModal()
 
     const onClick = () => {
-        setModalContent(<ItemModal item={item}/>)
+        setModalContent(<ItemModal item={item} isOwner={isOwner}/>)
     }
 
     let string_price = item.price_cents.toString()

@@ -160,20 +160,33 @@ def add_item(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        image = form.data["image"]
-        image.filename = get_unique_filename(image.filename)
-        upload = upload_file_to_s3(image)
+        new_item = Item()
+        if form.data["image"]:
+            image = form.data["image"]
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
 
-        if "url" not in upload:
-            return upload
+            print('')
+            print('UPLOAD: ', upload)
+            print('')
 
-        new_item = Item(
-            restaurant_id = restaurant.id,
-            name = form.data["name"],
-            description = form.data["description"],
-            price_cents = form.data["price_cents"],
-            image_url = upload.url
-        )
+            if "url" not in upload:
+                return upload
+
+            new_item = Item(
+                restaurant_id = restaurant.id,
+                name = form.data["name"],
+                description = form.data["description"],
+                price_cents = form.data["price_cents"],
+                image_url = upload['url']
+            )
+        else:
+            new_item = Item(
+                restaurant_id = restaurant.id,
+                name = form.data["name"],
+                description = form.data["description"],
+                price_cents = form.data["price_cents"],
+            )
 
         db.session.add(new_item)
         db.session.commit()

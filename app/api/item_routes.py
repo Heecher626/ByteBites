@@ -32,6 +32,10 @@ def update_item(id):
         if form.data['price_cents']:
             item.price_cents = form.data['price_cents']
 
+        print('')
+        print('Form Data Image: ', form.data["image"])
+        print('Form Data: ', form.data)
+        print('')
         if form.data["image"] != '':
             old_url = item.image_url
             new_file = form.data["image"]
@@ -52,7 +56,7 @@ def update_item(id):
         print(form.errors)
         return form.errors
 
-@item_routes.route('/<int:id>/delete')
+@item_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_item(id):
     """
@@ -65,10 +69,14 @@ def delete_item(id):
     if current_user.id != restaurant.owner_id:
         return make_response({ "errors": { "message": "forbidden"} }, 401)
 
-    old_image = restaurant.image_url
+    old_image = "Unassigned"
+
+    if "image_url" in restaurant.to_dict():
+        old_image = restaurant["image_url"]
 
     db.session.delete(item)
     db.session.commit()
 
-    remove_file_from_s3(old_image)
+    if old_image != "Unassigned":
+        remove_file_from_s3(old_image)
     return restaurant.to_dict()

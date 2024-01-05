@@ -17,7 +17,6 @@ export default function UpdateRestaurantForm() {
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState({})
 
-
     useEffect( () =>  {
         const getRestaurant = async () => {
             await dispatch(oneRestaurantThunk(restaurantId))

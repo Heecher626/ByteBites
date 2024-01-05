@@ -7,6 +7,8 @@ import Layout from './Layout';
 import CreateRestaurantForm from '../components/CreateRestaurantForm/CreateRestaurantForm';
 import UpdateRestaurantForm from '../components/UpdateRestaurantForm/UpdateRestaurant';
 import MyRestaurantsPage from '../components/MyRestaurantsPage/MyRestaurantsPage';
+import CreateItemForm from '../components/CreateItemForm/CreateItemForm';
+import UpdateItemForm from '../components/UpdateItemForm/UpdateItemForm';
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +45,14 @@ export const router = createBrowserRouter([
       {
         path:"manage",
         element: <MyRestaurantsPage />
+      },
+      {
+        path:"restaurants/:restaurantId/add-item",
+        element: <CreateItemForm />
+      },
+      {
+        path: "restaurants/:restaurantId/items/:itemId/update",
+        element: <UpdateItemForm />
       }
     ],
   },

@@ -41,7 +41,11 @@ class Restaurant(db.Model):
 
         if scope == "detailed":
             return_dict["reviews"] = [review.to_dict() for review in self.reviews]
-            return_dict["items"] = [item.to_dict() for item in self.items]
+            items_dict = {}
+            item_dict_list = [item.to_dict() for item in self.items]
+            for item in item_dict_list:
+                items_dict[item["id"]] = item
+            return_dict["items"] = items_dict
 
 
         return return_dict
