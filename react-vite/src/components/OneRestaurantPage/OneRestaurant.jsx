@@ -27,8 +27,6 @@ export default function OneRestaurant() {
     if(restaurant != undefined) {
         if (restaurant.items) {
             items = Object.values(restaurant.items)
-           console.log(items[0])
-
         }
     }
 
@@ -36,6 +34,7 @@ export default function OneRestaurant() {
     let isOwner = false
 
     if(restaurant != undefined) {
+        //comment here
         isOwner = user?.id == restaurant.owner_id
     }
 

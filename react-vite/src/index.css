@@ -2,3 +2,8 @@
 * {
     font-family: 'Dosis', sans-serif;
 };
+
+.error {
+    color: red;
+    font-weight: bold;
+}
