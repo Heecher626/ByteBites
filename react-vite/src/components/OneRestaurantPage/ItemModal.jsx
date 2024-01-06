@@ -21,9 +21,6 @@ export default function ItemModal({item, isOwner}) {
                         </div>
                     ) : null}
 
-
-
-
         </div>
     )
 }

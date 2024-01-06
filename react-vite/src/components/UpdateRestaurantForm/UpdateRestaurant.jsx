@@ -65,14 +65,17 @@ export default function UpdateRestaurantForm() {
     }
 
     return (
-        <div className="new-restaurant-container">
-            <div className="new-restaurant-content">
-                <h1 className="new-restaurant-header">{`Let's update ${restaurant?.name}!`}</h1>
+        <div className="form-container">
+            <div className="form-content">
+
+                <h1 className="form-header">{`Let's update ${restaurant?.name}!`}</h1>
+
                 <form
-                className="new-restaurant-form"
+                className="form-form"
                 onSubmit={handleSubmit}
                 encType="multipart/form-data">
-                    <label className="new-restaurant-input">
+
+                    <label className="form-input">
                         <span>What should we name your restaurant?</span>
                         <input
                         type="text"
@@ -85,7 +88,8 @@ export default function UpdateRestaurantForm() {
                             <span className="error">{validationErrors.name}</span>
                         )}
                     </label>
-                    <label className="new-restaurant-input">
+
+                    <label className="form-input">
                         <span>How would you describe your restaurant?</span>
                         <textarea
                         type="text"
@@ -98,7 +102,8 @@ export default function UpdateRestaurantForm() {
                             <span className="error">{validationErrors.description}</span>
                         )}
                     </label>
-                    <label className="new-album-input">
+
+                    <label className="form-input">
                         <span>Upload a preview image for your restaurant (A square resolution looks best!)</span>
                         <input
                         type="file"
@@ -109,7 +114,8 @@ export default function UpdateRestaurantForm() {
                             <span className="error">{validationErrors.preview}</span>
                         )}
                     </label>
-                    <label className="new-album-input">
+
+                    <label className="form-input">
                         <span>Upload a banner image for your restaurant (A wide rectangle resolution looks best!)</span>
                         <input
                         type="file"
@@ -119,8 +125,10 @@ export default function UpdateRestaurantForm() {
                         {hasSubmitted && validationErrors.banner && (
                             <span className="error">{validationErrors.banner}</span>
                         )}
+
                     </label>
-                    <button className="new-restaurant-submit-button" type="submit">All Ready!</button>
+
+                    <button className="form-submit-button" type="submit">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
                 </form>
             </div>

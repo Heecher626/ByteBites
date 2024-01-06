@@ -14,7 +14,8 @@ export default function UpdateItemForm() {
     const [name, setName] = useState(item?.name)
     const [description, setDescription] = useState(item?.description)
     const [image, setImage] = useState("")
-    const [price, setPrice] = useState(item?.price)
+    let price_dollars = item ? Number(item.price_cents) / 100 : 12
+    const [price, setPrice] = useState(price_dollars)
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState({})
     const [imageLoading, setImageLoading] = useState(false)
@@ -62,17 +63,18 @@ export default function UpdateItemForm() {
         await dispatch(updateItemThunk(formData, itemId))
 
         setHasSubmitted(false)
-        //navigate(`/restaurants/${restaurantId}`)
+        navigate(`/restaurants/${restaurantId}`)
     }
 
     return (
-        <div>
-            <div>
-                <h1>Update {item?.name}</h1>
-                <form
+        <div className="form-container">
+            <div className="form-content">
+                <h1 className="form-header">Update {item?.name}</h1>
+                <form className="form-form"
                 onSubmit={handleSubmit}
                 encType="multipart/form-data">
-                    <label>
+
+                    <label className="form-input">
                         <div>What is the name of this item?</div>
                         <input
                         type="text"
@@ -85,9 +87,10 @@ export default function UpdateItemForm() {
                             <div className="error">{validationErrors.name}</div>
                         )}
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>What is the price for this item?</div>
-                        $<input
+                        <input
                         type="number"
                         value={price}
                         placeholder="Item Price"
@@ -98,7 +101,8 @@ export default function UpdateItemForm() {
                             <div className="error">{validationErrors.price}</div>
                         )}
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>How would you describe your item?</div>
                         <textarea
                         type="text"
@@ -107,7 +111,8 @@ export default function UpdateItemForm() {
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>Upload an image for this item</div>
                         <input
                         type="file"
@@ -118,8 +123,11 @@ export default function UpdateItemForm() {
                             <div className="error">{validationErrors.image}</div>
                         )}
                     </label>
-                    <button>All Ready!</button>
+
+                    <button className="form-submit-button">All Ready!</button>
+
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
+
                 </form>
             </div>
         </div>
