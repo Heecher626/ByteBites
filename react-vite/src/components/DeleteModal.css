@@ -1,5 +1,6 @@
 .delete-modal {
     background-color: #DDEADD;
+    border-radius: px;
     height: 270px;
     width: 520px;
     margin: 0px;
@@ -16,11 +17,11 @@
 
 .delete-modal-button {
     height: 50px;
-    width: 160px;
+    width: 300px;
     margin: 10px;
     cursor: pointer;
     transition: 0.2s all ease-in;
-    border-radius: 10px;
+    border-radius: 80px;
     font-size: 17px;
     font-weight: 500;
 

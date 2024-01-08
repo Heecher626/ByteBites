@@ -55,11 +55,11 @@ export default function OneRestaurant() {
                 ) : <div className="no-items">No items yet!</div>}
 
                 { isOwner ? (
-                    <>
-                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
-                        <button onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
-                        <button onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
-                    </>
+                    <div className="one-restaurant-buttons-container">
+                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} className={"one-restaurant-button"} />
+                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
+                    </div>
                 ) : null}
             </div>
 
