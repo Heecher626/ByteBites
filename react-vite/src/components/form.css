@@ -1,13 +1,13 @@
 .form-container {
-    background-color: #DDD;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgb(230, 255, 230) 50%, rgba(220,220,220,1) 100%);
     padding: 0% 10%;
     min-height: 90vh;
 }
 
 .form-content {
     box-sizing: border-box;
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgb(230, 255, 230) 50%, rgba(220,220,220,1) 100%);
+
     min-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -22,20 +22,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .form-input {
     padding: 20px;
     text-align: center;
+    width: 40%;
 }
 
 input,
 textarea {
     width: 100%;
+    border: 2px solid green;
+    outline: none;
+    background-color: #f8f8f8;
+}
+
+.form-text-input {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.form-textarea {
+    padding: 10px;
+    font-size: 16px;
+    height: 60px;
+    width: 100%;
+    resize: none;
 }
 
 .form-submit-button {
-    width: 150px;
-    height: 30px;
+    width: 300px;
+    height: 60px;
     margin: 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: aliceblue;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &&:hover {
+        box-shadow: rgba(60, 80, 150, 0.5) 0px 0px 20px 0px;
+    }
+
+    &&:active {
+        background-color: rgb(220, 230, 240);
+    }
 }

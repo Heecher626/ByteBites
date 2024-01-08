@@ -49,11 +49,12 @@
 }
 
 .one-restaurant-button {
-    width: 150px;
-    height: 40px;
+    width: 225px;
+    height: 60px;
     border-radius: 20px;
     cursor: pointer;
     background-color: #DDEADD;
+    transition: 0.3s box-shadow ease-in-out;
 
     &&:hover {
         box-shadow: rgba(60, 80, 150, 0.5) 0px 0px 20px 0px;
@@ -66,9 +67,9 @@
 
 .one-restaurant-buttons-container {
     display: flex;
-    width: 40%;
     justify-content: space-around;
     margin: 0px 100px;
+
 }
 
 .no-items {

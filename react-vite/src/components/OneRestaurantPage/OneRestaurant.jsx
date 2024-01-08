@@ -56,9 +56,9 @@ export default function OneRestaurant() {
 
                 { isOwner ? (
                     <div className="one-restaurant-buttons-container">
-                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} className={"one-restaurant-button"} />
-                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
                         <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
+                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} className={"one-restaurant-button"} />
                     </div>
                 ) : null}
             </div>
