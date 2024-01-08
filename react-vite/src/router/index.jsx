@@ -6,7 +6,6 @@ import OneRestaurant from '../components/OneRestaurantPage/OneRestaurant';
 import Layout from './Layout';
 import CreateRestaurantForm from '../components/CreateRestaurantForm/CreateRestaurantForm';
 import UpdateRestaurantForm from '../components/UpdateRestaurantForm/UpdateRestaurant';
-import MyRestaurantsPage from '../components/MyRestaurantsPage/MyRestaurantsPage';
 import CreateItemForm from '../components/CreateItemForm/CreateItemForm';
 import UpdateItemForm from '../components/UpdateItemForm/UpdateItemForm';
 
@@ -44,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path:"manage",
-        element: <MyRestaurantsPage />
+        element: <AllRestaurantsPage myRestaurants={true} />
       },
       {
         path:"restaurants/:restaurantId/add-item",

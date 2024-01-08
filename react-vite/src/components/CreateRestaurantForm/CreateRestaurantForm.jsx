@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import "./CreateRestaurant.css"
+import "../form.css"
 
 export default function CreateRestaurantForm() {
     const dispatch = useDispatch();
@@ -57,18 +57,18 @@ export default function CreateRestaurantForm() {
         let restaurant = await dispatch(postRestaurantThunk(formData))
 
         setHasSubmitted(false)
-        navigate(`/restaurants/${restaurant}`)
+        navigate(`/restaurants/${restaurant.id}`)
     }
 
     return (
-        <div className="new-restaurant-container">
-            <div className="new-restaurant-content">
-                <h1 className="new-restaurant-header">{"Let's make a new restaurant!"}</h1>
+        <div className="form-container">
+            <div className="form-content">
+                <h1 className="form-header">{"Let's make a new restaurant!"}</h1>
                 <form
-                className="new-restaurant-form"
+                className="form-form"
                 onSubmit={handleSubmit}
                 encType="multipart/form-data">
-                    <label className="new-restaurant-input">
+                    <label className="form-input">
                         <div>What should we name your restaurant?</div>
                         <input
                         type="text"
@@ -81,7 +81,7 @@ export default function CreateRestaurantForm() {
                             <div className="error">{validationErrors.name}</div>
                         )}
                     </label>
-                    <label className="new-restaurant-input">
+                    <label className="form-input">
                         <div>How would you describe your restaurant?</div>
                         <textarea
                         type="text"
@@ -94,7 +94,7 @@ export default function CreateRestaurantForm() {
                             <div className="error">{validationErrors.description}</div>
                         )}
                     </label>
-                    <label className="new-restaurant-input">
+                    <label className="form-input">
                         <div>Upload a preview image for your restaurant (A square resolution looks best!)</div>
                         <input
                         type="file"
@@ -105,7 +105,7 @@ export default function CreateRestaurantForm() {
                             <div className="error">{validationErrors.preview}</div>
                         )}
                     </label>
-                    <label className="new-restaurant-input">
+                    <label className="form-input">
                         <div>Upload a banner image for your restaurant (A wide rectangle resolution looks best!)</div>
                         <input
                         type="file"
@@ -116,7 +116,7 @@ export default function CreateRestaurantForm() {
                             <div className="error">{validationErrors.banner}</div>
                         )}
                     </label>
-                    <button className="new-restaurant-submit-button" type="submit">All Ready!</button>
+                    <button className="form-submit-button" type="submit">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
                 </form>
             </div>

@@ -61,7 +61,7 @@ export const postRestaurantThunk = (restaurant) => async dispatch => {
         if (res.ok){
             const newRestaurant = await res.json()
             dispatch(oneRestaurant(newRestaurant))
-            return newRestaurant.id
+            return newRestaurant
 
         } else {
             const err = await res.json()

@@ -63,13 +63,16 @@ export default function CreateItemForm() {
 
 
     return (
-        <div>
-            <div>
-                <h1>Create a new item for {restaurant?.name}</h1>
-                <form
+        <div className="form-container">
+            <div className="form-content">
+
+                <h1 className="form-header">Create a new item for {restaurant?.name}</h1>
+
+                <form className="form-form"
                 onSubmit={handleSubmit}
                 encType="multipart/form-data">
-                    <label>
+
+                    <label className="form-input">
                         <div>What is the name of this item?</div>
                         <input
                         type="text"
@@ -82,7 +85,8 @@ export default function CreateItemForm() {
                             <div className="error">{validationErrors.name}</div>
                         )}
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>What is the price for this item?</div>
                         $<input
                         type="number"
@@ -95,7 +99,8 @@ export default function CreateItemForm() {
                             <div className="error">{validationErrors.price}</div>
                         )}
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>How would you describe your item?</div>
                         <textarea
                         type="text"
@@ -104,7 +109,8 @@ export default function CreateItemForm() {
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>
-                    <label>
+
+                    <label className="form-input">
                         <div>Upload an image for this item</div>
                         <input
                         type="file"
@@ -115,8 +121,10 @@ export default function CreateItemForm() {
                             <div className="error">{validationErrors.image}</div>
                         )}
                     </label>
-                    <button>All Ready!</button>
+
+                    <button className="form-submit-button">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
+
                 </form>
             </div>
         </div>
