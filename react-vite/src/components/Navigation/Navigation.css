@@ -37,9 +37,10 @@
 
 .navbar-link{
   text-decoration: none;
+  color: #0A8A0A;
 
   &&:hover{
-    text-decoration: underline;
+    font-weight: bold;
   }
 }
 

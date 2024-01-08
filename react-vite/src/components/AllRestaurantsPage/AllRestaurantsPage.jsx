@@ -60,7 +60,7 @@ export default function AllRestaurantsPage({myRestaurants}) {
                     </div>
                 )
             }
-            <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>
+           { ownerView && <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>}
         </div>
     )
 }
