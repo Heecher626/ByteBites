@@ -1,10 +1,14 @@
 .one-restaurant-page {
-    background-color: #DDD;
+    background-color: #DDEADD;
     padding: 0% 10%;
+    min-height: 90.5vh;
 }
 
 .one-restaurant-page-content {
+    box-sizing: border-box;
     background-color: white;
+    min-height: 90.5vh;
+    padding-bottom: 10px;
 }
 
 .one-restaurant-header {
@@ -105,4 +109,10 @@
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.no-items {
+    font-size: 32px;
+    text-align: center;
+    padding: 30px;
 }

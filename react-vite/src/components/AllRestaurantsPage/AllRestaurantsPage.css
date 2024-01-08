@@ -69,7 +69,7 @@
     font-size: 18px;
 }
 
-.active {
+.toggle-active {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.5);
     transition: all 0.2s ease-in-out;
@@ -80,7 +80,12 @@
     }
 }
 
-.inactive {
+.toggle-inactive {
     font-weight: bold;
     color: #004000
+}
+
+.no-restaurants {
+    font-size: 30px;
+    padding: 20px;
 }

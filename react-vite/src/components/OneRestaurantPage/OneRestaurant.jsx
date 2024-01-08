@@ -46,15 +46,13 @@ export default function OneRestaurant() {
                     <div className="one-restaurant-name">{restaurant.name}</div>
                 </div>
                 <div className="one-restaurant-description ">{restaurant.description}</div>
-                    {!restaurant.items ? null : Object.keys(items).length ? (
-                        <div className="items-grid">
-                            {items.map( item => (
-                            <ItemCard item={item} key={item.id} isOwner={isOwner} />))}
-                        </div>
-                    ) : <div>No items yet!</div>}
 
-
-
+                {!restaurant.items ? null : Object.keys(items).length ? (
+                    <div className="items-grid">
+                        {items.map( item => (
+                        <ItemCard item={item} key={item.id} isOwner={isOwner} />))}
+                    </div>
+                ) : <div className="no-items">No items yet!</div>}
 
                 { isOwner ? (
                     <>

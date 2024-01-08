@@ -16,13 +16,13 @@ function Navigation() {
 
       <div className="navbar-link-container">
         <NavLink to="/" className="navbar-link">Home</NavLink>
-        <NavLink to="/restaurants" className="navbar-link" >Order</NavLink>
+        <NavLink to="/restaurants" className="navbar-link">Restaurants</NavLink>
 
 
       {user ?
         (
           <>
-             <NavLink to="/manage" className="navbar-link">My Restaurants</NavLink>
+             {/* <NavLink to="/manage" className="navbar-link">My Restaurants</NavLink> */}
             <ProfileButton />
           </>
         )
