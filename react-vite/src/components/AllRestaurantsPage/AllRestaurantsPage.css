@@ -57,3 +57,30 @@
     color: gold;
     padding-right: 4px;
 }
+
+.all-restaurants-owner-toggle-container {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+.all-restaurants-toggle {
+    font-size: 18px;
+}
+
+.active {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+
+    &&:hover {
+        color: #004000;
+        /* font-weight: bold; */
+    }
+}
+
+.inactive {
+    font-weight: bold;
+    color: #004000
+}
