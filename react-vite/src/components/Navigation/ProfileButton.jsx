@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
 import { useNavigate } from "react-router-dom";
 
 function ProfileButton() {
@@ -58,16 +57,7 @@ function ProfileButton() {
             </>
           ) : (
             <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
+
             </>
           )}
         </ul>
