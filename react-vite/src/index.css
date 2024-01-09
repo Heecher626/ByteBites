@@ -1,9 +1,12 @@
 /* TODO: Add sitewide styles */
+
+
 * {
     font-family: 'Dosis', sans-serif;
-};
+}
 
 .error {
     color: red;
     font-weight: bold;
+    min-height: 22px;
 }

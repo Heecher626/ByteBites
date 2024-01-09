@@ -68,19 +68,20 @@ export default function CreateRestaurantForm() {
                 className="form-form"
                 onSubmit={handleSubmit}
                 encType="multipart/form-data">
-                    <label className="form-input">
+
+                    <label className={"form-input"}>
                         <div>What should we name your restaurant?</div>
                         <input
                         type="text"
                         value={name}
                         placeholder="Restaurant Name"
                         onChange={(e) => setName(e.target.value)}
+                        className={`form-text-input ${hasSubmitted && validationErrors.name ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.name && (
-                            <div className="error">{validationErrors.name}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.name}</div>
+
                     <label className="form-input">
                         <div>How would you describe your restaurant?</div>
                         <textarea
@@ -88,12 +89,12 @@ export default function CreateRestaurantForm() {
                         value={description}
                         placeholder="Restaurant Description"
                         onChange={(e) => setDescription(e.target.value)}
+                        className={`form-textarea ${hasSubmitted && validationErrors.description ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.description && (
-                            <div className="error">{validationErrors.description}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.description}</div>
+
                     <label className="form-input">
                         <div>Upload a preview image for your restaurant (A square resolution looks best!)</div>
                         <input
@@ -101,10 +102,9 @@ export default function CreateRestaurantForm() {
                         accept="image/*"
                         onChange={(e) => setPreview(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.preview && (
-                            <div className="error">{validationErrors.preview}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.preview}</div>
+
                     <label className="form-input">
                         <div>Upload a banner image for your restaurant (A wide rectangle resolution looks best!)</div>
                         <input
@@ -112,10 +112,9 @@ export default function CreateRestaurantForm() {
                         accept="image/*"
                         onChange={(e) => setBanner(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.banner && (
-                            <div className="error">{validationErrors.banner}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.banner}</div>
+
                     <button className="form-submit-button" type="submit">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
                 </form>

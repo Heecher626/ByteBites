@@ -83,12 +83,10 @@ export default function UpdateRestaurantForm() {
                         placeholder="Restaurant Name"
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="form-text-input"
+                        className={`form-text-input ${validationErrors.name ? "error-border": ""}`}
                         />
-                        {hasSubmitted && validationErrors.name && (
-                            <span className="error">{validationErrors.name}</span>
-                        )}
                     </label>
+                    <div className="error">{validationErrors.name}</div>
 
                     <label className="form-input">
                         <span>How would you describe your restaurant?</span>
@@ -97,13 +95,11 @@ export default function UpdateRestaurantForm() {
                         value={description}
                         placeholder="Restaurant Description"
                         onChange={(e) => setDescription(e.target.value)}
-                        className="form-textarea"
+                        className={`form-textarea ${validationErrors.description ? "error-border": ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.description && (
-                            <span className="error">{validationErrors.description}</span>
-                        )}
                     </label>
+                    <div className="error">{validationErrors.description}</div>
 
                     <label className="form-input">
                         <span>Upload a preview image for your restaurant (A square resolution looks best!)</span>
@@ -112,10 +108,8 @@ export default function UpdateRestaurantForm() {
                         accept="image/*"
                         onChange={(e) => setPreview(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.preview && (
-                            <span className="error">{validationErrors.preview}</span>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.preview}</div>
 
                     <label className="form-input">
                         <span>Upload a banner image for your restaurant (A wide rectangle resolution looks best!)</span>
@@ -124,11 +118,8 @@ export default function UpdateRestaurantForm() {
                         accept="image/*"
                         onChange={(e) => setBanner(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.banner && (
-                            <span className="error">{validationErrors.banner}</span>
-                        )}
-
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.banner}</div>
 
                     <button className="form-submit-button" type="submit">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}
