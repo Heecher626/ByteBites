@@ -16,7 +16,6 @@ export default function UpdateItemForm() {
     const [image, setImage] = useState("")
     let price_dollars = item ? Number(item.price_cents) / 100 : 12
     const [price, setPrice] = useState(price_dollars)
-    const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState({})
     const [imageLoading, setImageLoading] = useState(false)
 
@@ -38,7 +37,7 @@ export default function UpdateItemForm() {
         }
 
         if (price <= 0) {
-            errors.image = 'Price must be at least one cent!'
+            errors.price = 'Price must be at least one cent!'
         }
 
         setValidationErrors(errors)
@@ -46,8 +45,6 @@ export default function UpdateItemForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        setHasSubmitted(true)
 
         if (Object.values(validationErrors).length) {
             return;
@@ -62,7 +59,6 @@ export default function UpdateItemForm() {
         setImageLoading(true);
         await dispatch(updateItemThunk(formData, itemId))
 
-        setHasSubmitted(false)
         navigate(`/restaurants/${restaurantId}`)
     }
 
@@ -81,29 +77,25 @@ export default function UpdateItemForm() {
                         value={name}
                         placeholder="Item Name"
                         onChange={(e) => setName(e.target.value)}
-                        className="form-text-input"
+                        className={`form-text-input ${validationErrors.name ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.name && (
-                            <div className="error">{validationErrors.name}</div>
-                        )}
                     </label>
+                    <div className="error">{validationErrors.name}</div>
 
                     <label className="form-input">
                         <div>What is the price for this item?</div>
-                        <i class="fa-solid fa-dollar-sign form-icon"></i>
+                        <i className="fa-solid fa-dollar-sign form-icon"></i>
                         <input
                         type="number"
                         value={price}
                         placeholder="Item Price"
                         onChange={(e) => setPrice(e.target.value)}
-                        className="form-price"
+                        className={`form-price ${validationErrors.price ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.price && (
-                            <div className="error">{validationErrors.price}</div>
-                        )}
                     </label>
+                    <div className="error">{validationErrors.price}</div>
 
                     <label className="form-input">
                         <div>How would you describe your item?</div>
@@ -115,6 +107,7 @@ export default function UpdateItemForm() {
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>
+                    <div className="error">{validationErrors.description}</div>
 
                     <label className="form-input">
                         <div>Upload an image for this item</div>
@@ -123,10 +116,8 @@ export default function UpdateItemForm() {
                         accept="image/*"
                         onChange={(e) => setImage(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.image && (
-                            <div className="error">{validationErrors.image}</div>
-                        )}
                     </label>
+                    <div className="error">{validationErrors.image}</div>
 
                     <button className="form-submit-button">All Ready!</button>
 

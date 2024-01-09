@@ -56,7 +56,7 @@ export default function AllRestaurantsPage({myRestaurants}) {
 
                 ownerView && restaurants.length == 0 && (
                     <div className="no-restaurants">
-                        You don't have any restaurants yet!
+                        {`You don't have any restaurants yet!`}
                     </div>
                 )
             }
