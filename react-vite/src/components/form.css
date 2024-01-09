@@ -29,6 +29,7 @@
     padding: 20px;
     text-align: center;
     width: 40%;
+    font-size: 18px;
 }
 
 input,
@@ -37,6 +38,10 @@ textarea {
     border: 2px solid green;
     outline: none;
     background-color: #f8f8f8;
+
+    &&:focus {
+        background-color: #EAEAEA;
+    }
 }
 
 .form-text-input {
