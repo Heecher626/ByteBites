@@ -51,6 +51,8 @@
 
 .item-card-image-container {
     position: relative;
+    height: 130px;
+    width: 9.375vw;
 }
 
 .item-card-image {
