@@ -2,12 +2,16 @@ import { deleteItemThunk, oneRestaurantThunk } from "../../redux/restaurants";
 import { useModal } from "../../context/Modal"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import ItemModal from "./ItemModal";
 
 
 export default function DeleteItemModal( {item} ) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { closeModal } = useModal()
+    const { closeModal, setModalContent } = useModal()
+    const back = () => {
+        setModalContent(<ItemModal item={item} isOwner={true} />)
+    }
 
     const handleConfirm = async () => {
         await dispatch(deleteItemThunk(item.id))
@@ -17,10 +21,11 @@ export default function DeleteItemModal( {item} ) {
     }
 
     return (
-        <div>
-            <h1>Are you sure you want to delete this item?</h1>
-            <button onClick={handleConfirm}>Yes</button>
-            <button onClick={closeModal}>No</button>
+        <div className="delete-modal">
+            <h1 className="delete-modal-heading">Delete Item</h1>
+            <h2>Are you sure you want to delete this item?</h2>
+            <button onClick={handleConfirm} className="delete-modal-button confirm">Delete</button>
+            <button onClick={back} className="delete-modal-button go-back">Go Back</button>
         </div>
     )
 }

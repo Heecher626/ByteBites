@@ -41,13 +41,13 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
+    <div className="form-container form-content">
+      <h1 className="form-header">Sign Up to ByteBites</h1>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="form-form">
+        <label className="form-input">
           Email
-          <input
+          <input className="form-text-input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -55,9 +55,9 @@ function SignupFormPage() {
           />
         </label>
         {errors.email && <p>{errors.email}</p>}
-        <label>
+        <label className="form-input">
           Username
-          <input
+          <input className="form-text-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -65,9 +65,9 @@ function SignupFormPage() {
           />
         </label>
         {errors.username && <p>{errors.username}</p>}
-        <label>
+        <label className="form-input">
           Password
-          <input
+          <input className="form-text-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -75,9 +75,9 @@ function SignupFormPage() {
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <label>
+        <label className="form-input">
           Confirm Password
-          <input
+          <input className="form-text-input"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -85,9 +85,9 @@ function SignupFormPage() {
           />
         </label>
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
+        <button className="form-submit-button" type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

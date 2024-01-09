@@ -32,10 +32,6 @@ def update_item(id):
         if form.data['price_cents']:
             item.price_cents = form.data['price_cents']
 
-        print('')
-        print('Form Data Image: ', form.data["image"])
-        print('Form Data: ', form.data)
-        print('')
         if form.data["image"] != '':
             old_url = item.image_url
             new_file = form.data["image"]

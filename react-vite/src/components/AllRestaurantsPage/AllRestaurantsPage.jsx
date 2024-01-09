@@ -25,19 +25,21 @@ export default function AllRestaurantsPage({myRestaurants}) {
     if(ownerView){
         restaurants = allRestaurants.filter((restaurant) => restaurant.owner_id == user.id)
     }
+    console.log(restaurants.length)
+    console.log(ownerView)
     return(
         <div className="all-restaurants-page">
             <h1 className="all-restaurants-heading">{ownerView ? 'Your Restaurants' : 'Restaurants on ByteBites'}</h1>
             { user && (
                 ownerView ?
                 <div className="all-restaurants-owner-toggle-container">
-                    <span onClick={() => setOwnerView(false)} className="all-restaurants-toggle active">All Restaurants</span>
-                    <span className="all-restaurants-toggle inactive">My Restaurants</span>
+                    <span onClick={() => setOwnerView(false)} className="all-restaurants-toggle toggle-active">All Restaurants</span>
+                    <span className="all-restaurants-toggle toggle-inactive">My Restaurants</span>
                 </div>
                 :
                 <div className="all-restaurants-owner-toggle-container">
-                    <span className="all-restaurants-toggle inactive">All Restaurants</span>
-                    <span onClick={() => setOwnerView(true)} className="all-restaurants-toggle active">My Restaurants</span>
+                    <span className="all-restaurants-toggle toggle-inactive">All Restaurants</span>
+                    <span onClick={() => setOwnerView(true)} className="all-restaurants-toggle toggle-active">My Restaurants</span>
                 </div>
             )
 
@@ -48,8 +50,17 @@ export default function AllRestaurantsPage({myRestaurants}) {
                         <RestaurantCard restaurant={restaurant} key={restaurant.id} />
                     ))
                 }
+
             </div>
-            <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>
+            {
+
+                ownerView && restaurants.length == 0 && (
+                    <div className="no-restaurants">
+                        You don't have any restaurants yet!
+                    </div>
+                )
+            }
+           { ownerView && <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>}
         </div>
     )
 }

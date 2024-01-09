@@ -1,0 +1,37 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DDEADD;
+    min-height: 90.5vh;
+}
+
+.landing-heading {
+    margin-top: 170px;
+    font-size: 48px;
+}
+
+.landing-subheading {
+    font-style: italic;
+    font-size: 32px;
+    margin-bottom: 80px
+}
+
+.landing-button {
+    height: 70px;
+    width: 350px;
+    font-size: 18px;
+    padding: 18px 32px;
+    margin: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &&:hover {
+        box-shadow: rgba(60, 80, 150, 0.5) 0px 0px 20px 0px;
+    }
+}
+
+.landing-credits {
+    margin-top: 20px;
+    font-size: 18px;
+}

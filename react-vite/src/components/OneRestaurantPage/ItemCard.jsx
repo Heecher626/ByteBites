@@ -1,6 +1,8 @@
 import {useModal} from '../../context/Modal'
 import ItemModal from './ItemModal'
 
+import './ItemCard.css'
+
 export default function ItemCard({item, isOwner}){
     const {setModalContent} = useModal()
 

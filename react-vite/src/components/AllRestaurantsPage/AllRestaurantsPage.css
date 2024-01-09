@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #DDEADD;
+    min-height: 90vh;
 }
 
 .all-restaurants-heading {
@@ -13,24 +15,31 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     margin: 0px 100px;
+    border-radius: 30px;
 
-    background-color: #D9D9D9;
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    padding: 4px;
+    background-color: #D0CAD0;
+
 }
 
 .restaurant-card {
     box-sizing: border-box;
     margin: 10px;
     padding: 5px;
-    border: 2px solid green;
-    background-color: #FFFFFF;
+    border: 3px solid #742474;
+    background-color: #F9F9F9;
     transition: 0.3s;
     transition-timing-function: ease-in-out;
     transition-property: box-shadow;
+    border-radius: 30px;
 
     &&:hover {
         cursor: pointer;
         box-shadow: 2px 3px 2px 2px gray;
     }
+
+
 }
 
 .restaurant-card-name {
@@ -47,7 +56,7 @@
 }
 
 .restaurant-card-star-line {
-    margin-right: 20px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     width: fit-content;
@@ -69,7 +78,7 @@
     font-size: 18px;
 }
 
-.active {
+.toggle-active {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.5);
     transition: all 0.2s ease-in-out;
@@ -80,7 +89,12 @@
     }
 }
 
-.inactive {
+.toggle-inactive {
     font-weight: bold;
     color: #004000
+}
+
+.no-restaurants {
+    font-size: 30px;
+    padding: 20px;
 }

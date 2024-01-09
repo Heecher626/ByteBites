@@ -83,6 +83,7 @@ export default function UpdateRestaurantForm() {
                         placeholder="Restaurant Name"
                         onChange={(e) => setName(e.target.value)}
                         required
+                        className="form-text-input"
                         />
                         {hasSubmitted && validationErrors.name && (
                             <span className="error">{validationErrors.name}</span>
@@ -96,6 +97,7 @@ export default function UpdateRestaurantForm() {
                         value={description}
                         placeholder="Restaurant Description"
                         onChange={(e) => setDescription(e.target.value)}
+                        className="form-textarea"
                         required
                         />
                         {hasSubmitted && validationErrors.description && (
