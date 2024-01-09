@@ -34,7 +34,7 @@ export default function CreateItemForm() {
         }
 
         if (price <= 0) {
-            errors.image = 'Price must be at least one cent!'
+            errors.price = 'Price must be at least one cent!'
         }
 
         setValidationErrors(errors)
@@ -79,30 +79,25 @@ export default function CreateItemForm() {
                         value={name}
                         placeholder="Item Name"
                         onChange={(e) => setName(e.target.value)}
-                        className="form-text-input"
+                        className={`form-text-input ${hasSubmitted && validationErrors.name ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.name && (
-                            <div className="error">{validationErrors.name}</div>
-                        )}
                     </label>
-
+                    <div className="error">{hasSubmitted && validationErrors.name}</div>
 
                     <label className="form-input">
                         <div>What is the price for this item?</div>
-                        <i class="fa-solid fa-dollar-sign form-icon"></i>
+                        <i className="fa-solid fa-dollar-sign form-icon"></i>
                         <input
                         type="number"
                         value={price}
                         placeholder="Item Price"
                         onChange={(e) => setPrice(e.target.value)}
-                        className="form-price"
+                        className={`form-price ${hasSubmitted && validationErrors.price ? "error-border" : ""}`}
                         required
                         />
-                        {hasSubmitted && validationErrors.price && (
-                            <div className="error">{validationErrors.price}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.price}</div>
 
                     <label className="form-input">
                         <div>How would you describe your item?</div>
@@ -114,6 +109,7 @@ export default function CreateItemForm() {
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>
+                    <div className="error">{ hasSubmitted && validationErrors.description}</div>
 
                     <label className="form-input">
                         <div>Upload an image for this item</div>
@@ -122,10 +118,8 @@ export default function CreateItemForm() {
                         accept="image/*"
                         onChange={(e) => setImage(e.target.files[0])}
                         />
-                        {hasSubmitted && validationErrors.image && (
-                            <div className="error">{validationErrors.image}</div>
-                        )}
                     </label>
+                    <div className="error">{hasSubmitted && validationErrors.image}</div>
 
                     <button className="form-submit-button">All Ready!</button>
                     {(imageLoading) && <p>Please wait while our servers handle your request!</p>}

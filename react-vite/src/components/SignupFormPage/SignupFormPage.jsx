@@ -55,7 +55,7 @@ function SignupFormPage() {
   return (
     <div className="form-container form-content">
       <h1 className="form-header">Sign Up to ByteBites</h1>
-      {errors.server && <p>{errors.server}</p>}
+      <div className="error">{errors.server}</div>
       <form onSubmit={handleSubmit} className="form-form">
         <label className="form-input">
           Email
@@ -66,7 +66,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        <div className="error">{errors.email}</div>
         <label className="form-input">
           Username
           <input className="form-text-input"
@@ -76,7 +76,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        <div className="error">{errors.username}</div>
         <label className="form-input">
           Password
           <input className="form-text-input"
@@ -86,7 +86,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+       <div className="error">{errors.password}</div>
         <label className="form-input">
           Confirm Password
           <input className="form-text-input"
@@ -96,7 +96,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+        <div className="error">{errors.confirmPassword}</div>
         <button className="form-submit-button" type="submit">Sign Up</button>
       </form>
     </div>

@@ -40,6 +40,7 @@ textarea {
     border: 2px solid green;
     outline: none;
     background-color: #f8f8f8;
+    margin-top: 4px;
 
     &&:focus {
         background-color: #EAEAEA;
@@ -56,7 +57,7 @@ textarea {
 .form-textarea {
     box-sizing: border-box;
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
     height: 60px;
     width: 100%;
     resize: none;
@@ -66,7 +67,7 @@ textarea {
     font-size: 16px;
     position:absolute;
     left: 28px;
-    top: 53px
+    top: 57px
 }
 
 .form-price {
@@ -84,6 +85,7 @@ textarea {
     background-color: aliceblue;
     cursor: pointer;
     transition: box-shadow 0.3s ease-in-out;
+    margin-top: 30px;
 
     &&:hover {
         box-shadow: rgba(60, 80, 150, 0.5) 0px 0px 20px 0px;
@@ -92,4 +94,9 @@ textarea {
     &&:active {
         background-color: rgb(220, 230, 240);
     }
+}
+
+.error-border {
+    box-shadow: 0px 0px 8px 0px red;
+    border: 2px solid red;
 }

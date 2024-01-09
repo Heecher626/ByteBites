@@ -18,7 +18,7 @@ export default function ItemModal({item, isOwner}) {
     return (
         <div className="item-modal">
             <h1>{item.name}</h1>
-            <img className="item-modal-image" src={item.image_url}/>
+            {item.image_url && <img className="item-modal-image" src={item.image_url}/>}
             <div className="item-modal-description">{item.description}</div>
 
             <div>
