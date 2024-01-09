@@ -1,0 +1,22 @@
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    min-height: 40px;
+    border-top: 2px solid black;
+    margin-top: 1px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: blue;
+
+    &:hover {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
+
+#github-logo {
+    color: black;
+}

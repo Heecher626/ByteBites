@@ -25,8 +25,6 @@ export default function AllRestaurantsPage({myRestaurants}) {
     if(ownerView){
         restaurants = allRestaurants.filter((restaurant) => restaurant.owner_id == user.id)
     }
-    console.log(restaurants.length)
-    console.log(ownerView)
     return(
         <div className="all-restaurants-page">
             <h1 className="all-restaurants-heading">{ownerView ? 'Your Restaurants' : 'Restaurants on ByteBites'}</h1>
@@ -60,7 +58,7 @@ export default function AllRestaurantsPage({myRestaurants}) {
                     </div>
                 )
             }
-           { ownerView && <button onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>}
+           { ownerView && <button className="all-restaurants-button" onClick={() => navigate(`/restaurants/new`)}>Create Restaurant</button>}
         </div>
     )
 }
