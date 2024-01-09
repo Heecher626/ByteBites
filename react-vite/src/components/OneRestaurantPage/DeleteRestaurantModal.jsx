@@ -3,6 +3,8 @@ import { useModal } from "../../context/Modal"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+import "../DeleteModal.css"
+
 
 export default function DeleteRestaurantModal( {restaurantId} ) {
     const dispatch = useDispatch()
@@ -16,10 +18,11 @@ export default function DeleteRestaurantModal( {restaurantId} ) {
     }
 
     return (
-        <div>
-            <h1>Are you sure you want to delete this restaurant?</h1>
-            <button onClick={handleConfirm}>Yes</button>
-            <button onClick={closeModal}>No</button>
+        <div className="delete-modal">
+            <h1 className="delete-modal-heading">Delete Restaurant</h1>
+            <h2 className="delete-modal-message">Are you sure you want to delete this restaurant?</h2>
+            <button onClick={handleConfirm} className="delete-modal-button confirm">Delete</button>
+            <button onClick={closeModal} className="delete-modal-button go-back">Go Back</button>
         </div>
     )
 }

@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import AllRestaurantsPage from '../components/AllRestaurantsPage/AllRestaurantsPage';
 import OneRestaurant from '../components/OneRestaurantPage/OneRestaurant';
 import Layout from './Layout';
+import Landing from '../components/Landing/Landing';
 import CreateRestaurantForm from '../components/CreateRestaurantForm/CreateRestaurantForm';
 import UpdateRestaurantForm from '../components/UpdateRestaurantForm/UpdateRestaurant';
 import CreateItemForm from '../components/CreateItemForm/CreateItemForm';
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <Landing />,
       },
       {
         path: "login",

@@ -46,22 +46,20 @@ export default function OneRestaurant() {
                     <div className="one-restaurant-name">{restaurant.name}</div>
                 </div>
                 <div className="one-restaurant-description ">{restaurant.description}</div>
-                    {!restaurant.items ? null : Object.keys(items).length ? (
-                        <div className="items-grid">
-                            {items.map( item => (
-                            <ItemCard item={item} key={item.id} isOwner={isOwner} />))}
-                        </div>
-                    ) : <div>No items yet!</div>}
 
-
-
+                {!restaurant.items ? null : Object.keys(items).length ? (
+                    <div className="items-grid">
+                        {items.map( item => (
+                        <ItemCard item={item} key={item.id} isOwner={isOwner} />))}
+                    </div>
+                ) : <div className="no-items">No items yet!</div>}
 
                 { isOwner ? (
-                    <>
-                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} />
-                        <button onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
-                        <button onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
-                    </>
+                    <div className="one-restaurant-buttons-container">
+                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/add-item`)}>Add a new Item</button>
+                        <button className="one-restaurant-button" onClick={() => navigate(`/restaurants/${restaurantId}/update`)}>Update Restaurant</button>
+                        <OpenModalButton modalComponent={<DeleteRestaurantModal restaurantId={restaurantId}/>} buttonText={"Delete Restaurant"} className={"one-restaurant-button"} />
+                    </div>
                 ) : null}
             </div>
 

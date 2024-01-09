@@ -87,7 +87,6 @@ def update_restaurant(id):
         if form.data['name']:
             restaurant.name = form.data['name']
 
-        print('PREVIEW IMAGE URL: ', form.data["preview_image_url"])
         if form.data["preview_image_url"] != '':
             old_preview = restaurant.preview_image_url
             new_preview = form.data["preview_image_url"]
@@ -165,10 +164,6 @@ def add_item(id):
             image = form.data["image"]
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-
-            print('')
-            print('UPLOAD: ', upload)
-            print('')
 
             if "url" not in upload:
                 return upload
