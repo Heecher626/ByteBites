@@ -1,2 +1,3 @@
 Seeders
-Preload data in update restaurant
+Sign Up validations
+Item card price positioning
