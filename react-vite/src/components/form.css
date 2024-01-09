@@ -26,10 +26,12 @@
 }
 
 .form-input {
+    box-sizing: border-box;
     padding: 20px;
     text-align: center;
     width: 40%;
     font-size: 18px;
+    position: relative;
 }
 
 input,
@@ -48,15 +50,29 @@ textarea {
     padding: 10px;
     font-size: 18px;
     text-align: center;
-
+    box-sizing: border-box;
 }
 
 .form-textarea {
+    box-sizing: border-box;
     padding: 10px;
     font-size: 16px;
     height: 60px;
     width: 100%;
     resize: none;
+}
+
+.form-icon {
+    font-size: 16px;
+    position:absolute;
+    left: 28px;
+    top: 53px
+}
+
+.form-price {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    padding:  8px 5px 8px 25px;
 }
 
 .form-submit-button {

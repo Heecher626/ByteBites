@@ -81,6 +81,7 @@ export default function UpdateItemForm() {
                         value={name}
                         placeholder="Item Name"
                         onChange={(e) => setName(e.target.value)}
+                        className="form-text-input"
                         required
                         />
                         {hasSubmitted && validationErrors.name && (
@@ -90,11 +91,13 @@ export default function UpdateItemForm() {
 
                     <label className="form-input">
                         <div>What is the price for this item?</div>
+                        <i class="fa-solid fa-dollar-sign form-icon"></i>
                         <input
                         type="number"
                         value={price}
                         placeholder="Item Price"
                         onChange={(e) => setPrice(e.target.value)}
+                        className="form-price"
                         required
                         />
                         {hasSubmitted && validationErrors.price && (
@@ -108,6 +111,7 @@ export default function UpdateItemForm() {
                         type="text"
                         value={description}
                         placeholder="Item Description"
+                        className="form-textarea"
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>

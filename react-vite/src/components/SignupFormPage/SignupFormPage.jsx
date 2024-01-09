@@ -25,6 +25,18 @@ function SignupFormPage() {
       });
     }
 
+    if (username.length < 5) {
+      return setErrors({
+        username: "Username must be at least 5 characters"
+      })
+    }
+
+    if (password.length < 6) {
+      return setErrors ({
+        password: "Pasword must be at least 6 characters"
+      })
+    }
+
     const serverResponse = await dispatch(
       thunkSignup({
         email,
@@ -48,7 +60,7 @@ function SignupFormPage() {
         <label className="form-input">
           Email
           <input className="form-text-input"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
