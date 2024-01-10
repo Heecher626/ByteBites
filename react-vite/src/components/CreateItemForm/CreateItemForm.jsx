@@ -107,6 +107,7 @@ export default function CreateItemForm() {
                         placeholder="Item Price"
                         onChange={(e) => setPrice(formatPrice(e.target.value))}
                         className={`form-price ${hasSubmitted && validationErrors.price ? "error-border" : ""}`}
+                        step={0.01}
                         required
                         />
                     </label>
