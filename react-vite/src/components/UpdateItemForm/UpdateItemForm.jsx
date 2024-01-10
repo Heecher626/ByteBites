@@ -49,6 +49,10 @@ export default function UpdateItemForm() {
             errors.price = 'Price must be at least one cent!'
         }
 
+        if (price >= 10000) {
+            errors.price = 'Price cannot exceed $10000'
+        }
+
         setValidationErrors(errors)
     }, [name, price])
 
