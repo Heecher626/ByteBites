@@ -75,6 +75,7 @@ export default function CreateRestaurantForm() {
                         type="text"
                         value={name}
                         placeholder="Restaurant Name"
+                        maxLength={50}
                         onChange={(e) => setName(e.target.value)}
                         className={`form-text-input ${hasSubmitted && validationErrors.name ? "error-border" : ""}`}
                         required
@@ -87,6 +88,7 @@ export default function CreateRestaurantForm() {
                         <textarea
                         type="text"
                         value={description}
+                        maxLength={500}
                         placeholder="Restaurant Description"
                         onChange={(e) => setDescription(e.target.value)}
                         className={`form-textarea ${hasSubmitted && validationErrors.description ? "error-border" : ""}`}
