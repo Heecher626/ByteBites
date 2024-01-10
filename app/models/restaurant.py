@@ -20,8 +20,8 @@ class Restaurant(db.Model):
     banner_image_url = db.Column(db.String(255), nullable=False)
 
     owner = db.relationship("User", back_populates="restaurants")
-    reviews = db.relationship("Review", back_populates="restaurant")
-    items = db.relationship("Item", back_populates='restaurant')
+    reviews = db.relationship("Review", back_populates="restaurant", cascade='all, delete')
+    items = db.relationship("Item", back_populates='restaurant', cascade='all, delete')
 
 
     def to_dict(self, scope="default"):

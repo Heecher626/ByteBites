@@ -48,6 +48,8 @@
     font-size: larger;
     font-weight: bold;
     text-decoration: underline;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }
 
 .restaurant-card-image {

@@ -77,6 +77,7 @@ export default function UpdateItemForm() {
                         value={name}
                         placeholder="Item Name"
                         onChange={(e) => setName(e.target.value)}
+                        maxLength={50}
                         className={`form-text-input ${validationErrors.name ? "error-border" : ""}`}
                         required
                         />
@@ -104,6 +105,7 @@ export default function UpdateItemForm() {
                         value={description}
                         placeholder="Item Description"
                         className="form-textarea"
+                        maxLength={150}
                         onChange={(e) => setDescription(e.target.value)}
                         />
                     </label>
