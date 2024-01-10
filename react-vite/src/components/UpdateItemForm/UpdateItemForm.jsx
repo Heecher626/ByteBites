@@ -14,7 +14,7 @@ export default function UpdateItemForm() {
     const [name, setName] = useState(item?.name)
     const [description, setDescription] = useState(item?.description)
     const [image, setImage] = useState("")
-    let price_dollars = item ? Number(item.price_cents) / 100 : 12
+    let price_dollars = item ? Number(item.price_cents) / 100 : 0.00
     const [price, setPrice] = useState(price_dollars)
     const [validationErrors, setValidationErrors] = useState({})
     const [imageLoading, setImageLoading] = useState(false)
@@ -27,6 +27,15 @@ export default function UpdateItemForm() {
 
         getRestaurant()
     }, [dispatch, restaurantId])
+
+
+    function formatPrice(value) {
+        let periodIndex = value.indexOf('.')
+        let decimal = value.slice(periodIndex)
+
+        if(decimal.length > 3) value = parseFloat(value).toFixed(2)
+        return value
+    }
 
 
     useEffect(() => {
@@ -91,7 +100,7 @@ export default function UpdateItemForm() {
                         type="number"
                         value={price}
                         placeholder="Item Price"
-                        onChange={(e) => setPrice(e.target.value)}
+                        onChange={(e) => setPrice(formatPrice(e.target.value))}
                         className={`form-price ${validationErrors.price ? "error-border" : ""}`}
                         required
                         />
