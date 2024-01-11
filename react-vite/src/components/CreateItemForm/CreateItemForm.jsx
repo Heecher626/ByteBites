@@ -64,7 +64,7 @@ export default function CreateItemForm() {
         const formData = new FormData();
         formData.append("name", name)
         formData.append("image", image)
-        formData.append("price_cents", price*100)
+        formData.append("price_cents", Math.round(price*100))
         formData.append("description", description)
 
         setImageLoading(true)
