@@ -70,7 +70,39 @@ def seed_items():
     ))
 
     items.append(Item(
-        restaurant_id=4,
+        restaurant_id= 2,
+        name = "The Classic",
+        price_cents = 1199,
+        description = "The classic beef, bean, and cheese burrito",
+        image_url="https://life-in-the-lofthouse.com/wp-content/uploads/2014/08/freezer-burritos-LifeInTheLofthouse.jpg"
+    ))
+
+    items.append(Item(
+        restaurant_id= 2,
+        name = "California Style",
+        price_cents = 1599,
+        description = "An authentic california burrito with carne asada, guacamole, and fries.",
+        image_url="https://www.thecandidcooks.com/wp-content/uploads/2022/05/california-burrito-close-feature.jpg"
+    ))
+
+    items.append(Item(
+        restaurant_id= 2,
+        name = "KBBQ Burrito",
+        price_cents = 1699,
+        description = "A unique fusion take on a burrito, with Korean BBQ Beef, rice, kimchi, and a sweet and savory sauce.",
+        image_url="https://pinchofyum.com/wp-content/uploads/Korean-BBQ-Beef-Burritos-Recipe.jpg"
+    ))
+
+    items.append(Item(
+        restaurant_id= 2,
+        name = "Vegan Burrito",
+        price_cents = 1499,
+        description = "An option for the vegans, with plant-based chorizo, guacamole, pineapple salsa, and brown rice.",
+        image_url="https://plantd.co/wp-content/uploads/2019/09/Veggie-Burrito.png"
+    ))
+
+    items.append(Item(
+        restaurant_id=3,
         name="Garlic Bread",
         price_cents=600,
         description="Buttery bread that is topped with garlic.",
@@ -78,7 +110,7 @@ def seed_items():
     ))
 
     items.append(Item(
-        restaurant_id= 4,
+        restaurant_id= 3,
         name = "Buratta",
         price_cents = 1200,
         description = "Cream filled fresh mozzarella over tomato salad and topped with fresh basil, balsamic glaze and extra virgin olive oil.",
@@ -86,14 +118,14 @@ def seed_items():
     ))
 
     items.append(Item(
-        restaurant_id= 4,
+        restaurant_id= 3,
         name = "Penne with Chicken and Broccoli",
         price_cents = 2000,
         description = "Comes with a garlic cream sauce",
     ))
 
     items.append(Item(
-        restaurant_id= 4,
+        restaurant_id= 3,
         name = "Chicken Marsala",
         price_cents = 2300,
         description = "Mushrooms, prosciutto, sweet marsala wine reduction tossed with linguine",

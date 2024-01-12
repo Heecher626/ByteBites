@@ -31,7 +31,9 @@
     display: flex;
     flex-direction: column;
     text-wrap: balance;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
 
     width: 17.625vw;
 }
@@ -39,7 +41,8 @@
 .item-card-name {
     padding-bottom: 10px;
     font-weight: bolder;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .item-card-price {
