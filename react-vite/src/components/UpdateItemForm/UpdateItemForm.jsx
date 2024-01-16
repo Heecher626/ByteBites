@@ -66,7 +66,7 @@ export default function UpdateItemForm() {
         const formData = new FormData();
         formData.append("name", name)
         formData.append("description", description)
-        formData.append("price_cents", price*100)
+        formData.append("price_cents", Math.round(price*100))
         formData.append("image", image)
 
         setImageLoading(true);
