@@ -34,7 +34,7 @@ export default function OneRestaurant() {
     let isOwner = false
 
     if(restaurant != undefined) {
-        //comment here
+        // if no user, then "user?" evaluates as undefined, making the overall code evaluate to falsey"
         isOwner = user?.id == restaurant.owner_id
     }
 
