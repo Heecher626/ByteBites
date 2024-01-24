@@ -52,7 +52,7 @@ def seed_restaurants():
         banner_image_url="https://mojo.generalmills.com/api/public/content/9oyvQGwLEUaCa-9gVKIv_g_gmi_hi_res_jpeg.jpeg?v=84ea5012&t=466b54bb264e48b199fc8e83ef1136b4"
     )
     restaurant_8 = Restaurant(
-        owner_id=0,
+        owner_id=1,
         name="Demo User's Restaurant",
         description="A restaurant belonging to the Demo User! Feel free to play around with the owner controls!",
         preview_image_url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/800px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
