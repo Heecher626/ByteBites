@@ -16,12 +16,12 @@ def seed_users():
         username='sarah', email='sarah@aa.io', password='password')
     alex = User(
         username='alex', email='alex@aa.io', password='password')
-    daniel = User(
-        username='daniel', email='daniel@aa.io', password='password')
+    charlie = User(
+        username='charlie', email='charlie@aa.io', password='password')
     zoe = User(
         username='zoe', email='zoe@aa.io', password='password')
-    amber = User(
-        username='amber', email='amber@aa.io', password='password')
+    brooke = User(
+        username='brooke', email='brooke@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -29,9 +29,9 @@ def seed_users():
     db.session.add(jacob)
     db.session.add(sarah)
     db.session.add(alex)
-    db.session.add(daniel)
+    db.session.add(charlie)
     db.session.add(zoe)
-    db.session.add(amber)
+    db.session.add(brooke)
     db.session.commit()
     db.session.close()
 
