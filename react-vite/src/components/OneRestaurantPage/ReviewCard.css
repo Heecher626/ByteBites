@@ -1,0 +1,28 @@
+.review-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+
+    border-top: 1px solid grey;
+    padding-top: 5px;
+}
+
+.review-card-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.review-card-stars {
+    margin: 5px 0px;
+    font-size: 18px;
+}
+
+.review-card-star {
+    color: gold;
+}
+
+.review-card-star-empty {
+    color: #BBB;
+}
+
+

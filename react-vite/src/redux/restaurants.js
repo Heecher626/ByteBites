@@ -167,7 +167,69 @@ export const deleteItemThunk = (itemId) => async dispatch => {
 
     if(res.ok){
         const data = await res.json()
-        dispatch(oneRestaurant(data.id))
+        dispatch(oneRestaurant(data))
+    } else {
+        const error = await res.json()
+        console.log("ERROR IN DELETE ITEM THUNK: ", error)
+        return error
+    }
+}
+
+export const postReviewThunk = (review, restaurantId) => async dispatch => {
+    try {
+        const res = await fetch(`/api/restaurants/${restaurantId}/review`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+
+        if(res.ok){
+            const data = await res.json()
+            dispatch(oneRestaurant(data))
+        } else {
+            const error = await res.json()
+            console.log(error)
+            return error
+        }
+    } catch (error) {
+        console.log("ERROR CAUGHT IN POST REVIEW THUNK", error)
+        return error
+    }
+}
+
+export const updateReviewThunk = (review, reviewId) => async dispatch => {
+    try {
+        const res = await fetch(`/api/reviews/${reviewId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+        if(res.ok){
+            const data = await res.json()
+            dispatch(oneRestaurant(data))
+        } else {
+            const error = await res.json()
+            console.log(error)
+            return error
+        }
+    } catch (error) {
+        console.log("ERROR CAUGHT IN UPDATE REVIEW THUNK", error)
+        return error
+    }
+}
+
+export const deleteReviewThunk = (reviewId) => async dispatch => {
+    const res = await fetch(`/api/reviews/${reviewId}/delete`, {
+        method: 'DELETE'
+    })
+
+    if(res.ok){
+        const data = await res.json()
+        dispatch(oneRestaurant(data))
     } else {
         const error = await res.json()
         console.log("ERROR IN DELETE ITEM THUNK: ", error)

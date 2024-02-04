@@ -59,6 +59,10 @@ def delete_item(id):
     Deletes an item
     """
 
+    print("")
+    print("")
+    print("")
+
     item = Item.query.get(id)
     restaurant = item.restaurant
 
@@ -67,8 +71,8 @@ def delete_item(id):
 
     old_image = "Unassigned"
 
-    if "image_url" in restaurant.to_dict():
-        old_image = restaurant["image_url"]
+    if item.to_dict()["image_url"] != None:
+        old_image = item.image_url
 
     db.session.delete(item)
     db.session.commit()
