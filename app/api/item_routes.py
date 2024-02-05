@@ -41,7 +41,8 @@ def update_item(id):
             if "url" not in upload:
                 return upload
 
-            remove_file_from_s3(old_url)
+            if old_url:
+                remove_file_from_s3(old_url)
             item.image_url = upload['url']
 
         db.session.commit()
@@ -59,6 +60,10 @@ def delete_item(id):
     Deletes an item
     """
 
+    print("")
+    print("")
+    print("")
+
     item = Item.query.get(id)
     restaurant = item.restaurant
 
@@ -67,8 +72,8 @@ def delete_item(id):
 
     old_image = "Unassigned"
 
-    if "image_url" in restaurant.to_dict():
-        old_image = restaurant["image_url"]
+    if item.to_dict()["image_url"] != None:
+        old_image = item.image_url
 
     db.session.delete(item)
     db.session.commit()

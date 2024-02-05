@@ -1,8 +1,8 @@
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from flask_login import login_required, current_user
 from flask import Blueprint, request, make_response
-from app.models import Restaurant, Item, db
-from ..forms import RestaurantForm, UpdateRestaurantForm, ItemForm
+from app.models import Restaurant, Item, Review, db
+from ..forms import RestaurantForm, UpdateRestaurantForm, ItemForm, ReviewForm
 
 restaurant_routes = Blueprint('restaurant', __name__)
 
@@ -184,6 +184,31 @@ def add_item(id):
             )
 
         db.session.add(new_item)
+        db.session.commit()
+        return restaurant.to_dict()
+    else:
+        print(form.errors)
+        return form.errors
+
+@restaurant_routes.route('/<int:id>/review', methods=['POST'])
+@login_required
+def add_review(id):
+
+    restaurant = Restaurant.query.get(id)
+
+    form = ReviewForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        new_review = Review(
+            restaurant=restaurant,
+            reviewer=current_user,
+            stars = form.data['stars'],
+            content = form.data['content']
+        )
+
+        db.session.add(new_review)
         db.session.commit()
         return restaurant.to_dict()
     else:

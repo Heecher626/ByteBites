@@ -15,3 +15,7 @@ body {
     margin: 0px;
     padding: none;
 }
+
+.centered {
+    margin: auto
+}

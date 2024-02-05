@@ -1,0 +1,47 @@
+.review-modal {
+    min-height: 500px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEEEEE;
+}
+
+.review-form-stars-container {
+    display: flex;
+}
+
+.review-star {
+    color: gold;
+    font-size: 40px;
+}
+
+.review-modal > label > textarea {
+    width: 400px;
+    min-height: 185px;
+}
+
+.review-modal > label {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.review-submit-button {
+    width: 260px;
+    height: 50px;
+    margin: 20px;
+    font-size: 16px;
+    border-radius: 18px;
+    background-color: aliceblue;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &&:hover {
+        box-shadow: rgba(60, 80, 150, 0.5) 0px 0px 20px 0px;
+    }
+
+    &&:active {
+        background-color: rgb(220, 230, 240);
+    }
+}
