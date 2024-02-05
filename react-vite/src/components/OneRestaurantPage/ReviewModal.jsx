@@ -1,4 +1,4 @@
-import { postReviewThunk, updateReviewThunk } from "../../redux/restaurants";
+import { oneRestaurantThunk, postReviewThunk, updateReviewThunk } from "../../redux/restaurants";
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -66,6 +66,7 @@ export default function ReviewModal( {restaurant, review}) {
         await dispatch(updateReviewThunk(newReview, review.id))
 
         closeModal()
+        await dispatch(oneRestaurantThunk(restaurant.id))
         navigate(`/restaurants/${restaurant.id}`)
 
     }

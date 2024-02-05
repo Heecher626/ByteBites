@@ -41,7 +41,8 @@ def update_item(id):
             if "url" not in upload:
                 return upload
 
-            remove_file_from_s3(old_url)
+            if old_url:
+                remove_file_from_s3(old_url)
             item.image_url = upload['url']
 
         db.session.commit()

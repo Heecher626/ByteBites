@@ -24,8 +24,8 @@ export default function ReviewCard({review, restaurant}){
             {
                 user.username === review.reviewer ?
                 <div>
-                    <OpenModalButton modalComponent={<ReviewModal review={review} restaurant={restaurant}/>} buttonText={`Update Review1`} className={''}/>
-                    <OpenModalButton modalComponent={<DeleteReviewModal review={review} restaurantId={restaurant.id}/>} buttonText={'Delete Review'} />
+                    <OpenModalButton modalComponent={<ReviewModal review={review} restaurant={restaurant}/>} buttonText={`Update Review`} className={'review-card-update'}/>
+                    <OpenModalButton modalComponent={<DeleteReviewModal review={review} restaurantId={restaurant.id}/>} buttonText={'Delete Review'} className={'review-card-delete'} />
                 </div>
                 : null
             }

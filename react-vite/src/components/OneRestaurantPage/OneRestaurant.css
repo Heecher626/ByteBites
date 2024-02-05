@@ -89,3 +89,19 @@
 .reviews-container {
     padding: 0px 140px;
 }
+
+.one-restaurant-review-header {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 140px
+}
+
+.one-restaurant-review-header-heading{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.one-restaurant-review-stars {
+    font-size: 30px;
+    margin: 10px 0px;
+}

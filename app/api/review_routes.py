@@ -26,7 +26,7 @@ def create_review(id):
         db.session.commit()
         return review.restaurant.to_dict()
 
-@review_routes.route('/int:id>/delete', methods=['DELETE'])
+@review_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_review(id):
     """
