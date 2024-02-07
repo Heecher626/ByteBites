@@ -7,21 +7,21 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='Marnie', email='marnie@aa.io', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='Bobbie', email='bobbie@aa.io', password='password')
     jacob = User(
-        username='jacob', email='jacob@aa.io', password='password')
+        username='Jacob', email='jacob@aa.io', password='password')
     sarah = User(
-        username='sarah', email='sarah@aa.io', password='password')
+        username='Sarah', email='sarah@aa.io', password='password')
     alex = User(
-        username='alex', email='alex@aa.io', password='password')
+        username='Alex', email='alex@aa.io', password='password')
     charlie = User(
-        username='charlie', email='charlie@aa.io', password='password')
+        username='Charlie', email='charlie@aa.io', password='password')
     zoe = User(
-        username='zoe', email='zoe@aa.io', password='password')
+        username='Zoe', email='zoe@aa.io', password='password')
     brooke = User(
-        username='brooke', email='brooke@aa.io', password='password')
+        username='Brooke', email='brooke@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)

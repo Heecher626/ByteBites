@@ -18,7 +18,7 @@ def seed_restaurants():
     )
     restaurant_3 = Restaurant(
         owner_id=2,
-        name="Pasta Palace",
+        name="Pasta Paradise",
         description="Welcome to Pasta Paradise, where the enchanting aroma of authentic Italian flavors beckons. Our chefs meticulously craft each dish, from classic spaghetti to regional specialties, using only the finest ingredients.",
         preview_image_url="https://www.twopeasandtheirpod.com/wp-content/uploads/2023/05/Lemon-Ricotta-Pasta-9-500x375.jpg",
         banner_image_url="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/02/05/Baked-Feta-Pasta-4_s4x3.jpg.rend.hgtvcom.511.288.suffix/1615916524567.jpeg"
