@@ -25,7 +25,7 @@ export default function Landing() {
                 <button className={"landing-button"} onClick={() => setModalContent(<LoginFormModal/>)}>Log In</button>
             </>)}
 
-            <div className="landing-credits">Made by Elliot Starr</div>
+            <div className="landing-credits">Made by Ellie Starr</div>
         </div>
     )
 }

@@ -122,7 +122,7 @@ export default function OneRestaurant() {
 
           </div>}
 
-          {!isOwner && (
+          {user && !isOwner && (
             <OpenModalButton
               modalComponent={
                 <ReviewModal restaurant={restaurant} review={false} />
