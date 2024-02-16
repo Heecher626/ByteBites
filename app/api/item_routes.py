@@ -81,3 +81,13 @@ def delete_item(id):
     if old_image != "Unassigned":
         remove_file_from_s3(old_image)
     return restaurant.to_dict()
+
+@item_routes.route('/<int:id>/cart', methods=['POST'])
+@login_required
+def add_to_cart(id):
+    """
+    Adds an item to a user's cart
+    """
+
+    item = Item.query.get(id)
+    
