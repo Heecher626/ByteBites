@@ -1,7 +1,7 @@
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from flask_login import login_required, current_user
 from flask import Blueprint, request, make_response
-from app.models import Restaurant, Item, db
+from app.models import Restaurant, Item, Cart, db
 from ..forms import ItemForm
 
 item_routes = Blueprint('item', __name__)
@@ -60,10 +60,6 @@ def delete_item(id):
     Deletes an item
     """
 
-    print("")
-    print("")
-    print("")
-
     item = Item.query.get(id)
     restaurant = item.restaurant
 
@@ -90,4 +86,8 @@ def add_to_cart(id):
     """
 
     item = Item.query.get(id)
-    
+
+    if not current_user.cart:
+        current_user.cart = Cart()
+
+    return current_user.to_dict()

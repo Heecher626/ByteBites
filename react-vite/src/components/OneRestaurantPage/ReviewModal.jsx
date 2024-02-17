@@ -63,7 +63,9 @@ export default function ReviewModal( {restaurant, review}) {
             await dispatch(postReviewThunk(newReview, restaurant.id))
         }
 
-        await dispatch(updateReviewThunk(newReview, review.id))
+        else {
+            await dispatch(updateReviewThunk(newReview, review.id))
+        }
 
         closeModal()
         await dispatch(oneRestaurantThunk(restaurant.id))
