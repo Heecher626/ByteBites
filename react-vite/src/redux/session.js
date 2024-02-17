@@ -64,8 +64,7 @@ export const thunkLogout = () => async (dispatch) => {
 };
 
 export const thunkAddToCart = (itemId) => async (dispatch) => {
-  console.log(`api/items/${itemId}/cart`);
-  const response = await fetch(`api/items/${itemId}/cart`, {
+  const response = await fetch(`/api/items/${itemId}/cart`, {
     method: "POST"
   })
   // if(response.ok) {
