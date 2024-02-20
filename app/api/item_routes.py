@@ -88,6 +88,15 @@ def add_to_cart(id):
     item = Item.query.get(id)
 
     if not current_user.cart:
-        current_user.cart = Cart()
+        cart = Cart(
+            user = current_user
+        )
+
+        db.session.add(cart)
+
+    cart = current_user.cart[0]
+
+    cart.items.append(item)
+    db.session.commit()
 
     return current_user.to_dict()
