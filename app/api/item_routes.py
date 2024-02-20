@@ -96,7 +96,10 @@ def add_to_cart(id):
 
     cart = current_user.cart[0]
 
-    cart.items.append(item)
+    if item not in cart.items:
+        cart.items.append(item)
+    else:
+        cart
     db.session.commit()
 
     return current_user.to_dict()
