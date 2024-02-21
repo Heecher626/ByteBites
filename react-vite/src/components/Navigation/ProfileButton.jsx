@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLogout } from "../../redux/session";
 import { useNavigate } from "react-router-dom";
-import { useModal } from "../../context/Modal";
 
 function ProfileButton() {
   const navigate = useNavigate()
@@ -10,18 +9,10 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
-  const [togglePref, setTogglePref] = useState(false)
-  const [togglePref2, setTogglePref2] = useState(false)
-  const { closeModal, closeable } = useModal()
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
-    // setShowMenu(!showMenu);
-    if (user) {
-      setTogglePref(true)
-
-      window.addEventListener('mousedown', handleMouseClick)
-    }
+    setShowMenu(!showMenu);
   };
 
   useEffect(() => {
@@ -46,17 +37,6 @@ function ProfileButton() {
     navigate('/')
     closeMenu();
   };
-
-  useEffect(() => {
-    if(togglePref) closePref()
-  }, [window.location.href])
-
-  function closePref() {
-    setTogglePref(false)
-    setTogglePref2(true)
-    setTimeout(() => setTogglePref2(false), 350)
-    return window.removeEventListener('mousedown', handleMouseClick)
-  }
 
   return (
     <>
