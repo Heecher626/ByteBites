@@ -1,7 +1,7 @@
 from .aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from flask_login import login_required, current_user
 from flask import Blueprint, request, make_response
-from app.models import Restaurant, Item, db
+from app.models import Restaurant, Item, Cart, db
 from ..forms import ItemForm
 
 item_routes = Blueprint('item', __name__)
@@ -60,10 +60,6 @@ def delete_item(id):
     Deletes an item
     """
 
-    print("")
-    print("")
-    print("")
-
     item = Item.query.get(id)
     restaurant = item.restaurant
 
@@ -81,3 +77,29 @@ def delete_item(id):
     if old_image != "Unassigned":
         remove_file_from_s3(old_image)
     return restaurant.to_dict()
+
+@item_routes.route('/<int:id>/cart', methods=['POST'])
+@login_required
+def add_to_cart(id):
+    """
+    Adds an item to a user's cart
+    """
+
+    item = Item.query.get(id)
+
+    if not current_user.cart:
+        cart = Cart(
+            user = current_user
+        )
+
+        db.session.add(cart)
+
+    cart = current_user.cart[0]
+
+    if item not in cart.items:
+        cart.items.append(item)
+    else:
+        cart
+    db.session.commit()
+
+    return current_user.to_dict()

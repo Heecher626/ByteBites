@@ -21,10 +21,12 @@ function Navigation() {
 
       {user ?
         (
-          <>
+          <div className="profile-cart">
              {/* <NavLink to="/manage" className="navbar-link">My Restaurants</NavLink> */}
+             <NavLink to="/cart" className={'cart-icon'}><i class="fa-solid fa-cart-shopping"></i></NavLink>
             <ProfileButton />
-          </>
+
+          </div>
         )
         :
         (
