@@ -10,6 +10,7 @@ cartItem = db.Table(
     db.Model.metadata,
     db.Column('cart_id', db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")), primary_key=True),
     db.Column('item_id', db.Integer, db.ForeignKey(add_prefix_for_prod("items.id")), primary_key=True),
+    db.Column('quantity', db.Integer)
 )
 
 if environment == "production":
@@ -27,7 +28,7 @@ class Cart(db.Model):
 
     user = db.relationship("User", back_populates="cart")
 
-    items = db.relationship("Item", secondary=cartItem, back_populates="cart")
+    items = db.relationship("Item", secondary=cartItem, back_populates="cart", cascade="all, delete")
 
     def to_dict(self):
         return_dict = {
